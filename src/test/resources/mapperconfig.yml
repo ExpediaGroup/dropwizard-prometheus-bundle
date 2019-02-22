@@ -1,0 +1,8 @@
+prometheusConfig:
+  mapperConfig:
+    - matchField: "com.request.*.value"
+      matchName: "ContextHandler.requests"
+      labels: {"method":"${0}"}
+    - matchField: "com.test.*.value.*"
+      matchName: "testName.value"
+      labels: {"method":"${0}", "value":"${1}"}

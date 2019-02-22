@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -29,6 +30,10 @@ public class TestPrometheusBundle {
 
         String scrape = client.target("http://localhost:"+Integer.toString(port)+"/metrics")
         .request().get(String.class);
+
+        Assertions.assertThat(scrape)
+                .isNotNull()
+                .contains("# HELP", "# TYPE");
 
 
     }
