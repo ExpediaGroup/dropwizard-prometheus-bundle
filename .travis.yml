@@ -11,3 +11,11 @@ cache:
   directories:
     - $HOME/.m2
 
+before_install:
+  - ./.travis/setup-deploy.sh
+
+deploy:
+  provider: script
+  # skip_cleanup is to keep the artifacts from the build phase
+  skip_cleanup: true
+  script: mvn -DskipTest -Psigned -B deploy
