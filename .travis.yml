@@ -12,7 +12,7 @@ cache:
     - $HOME/.m2
 
 before_install:
-  - ./.travis/setup-deploy.sh
+  - bash ./.travis/setup-deploy.sh
 
 deploy:
   provider: script
