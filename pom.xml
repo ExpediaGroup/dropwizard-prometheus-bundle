@@ -4,7 +4,7 @@
 
     <groupId>com.expediagroup</groupId>
     <artifactId>dropwizard-prometheus-bundle</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -21,9 +21,9 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/eleduardo/dropwizard-prometheus-bundle</url>
-        <connection>scm:git:ssh://git@github.com/eleduardo/dropwizard-prometheus-bundle.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/eleduardo/dropwizard-prometheus-bundle.git</developerConnection>
+        <url>https://github.com/homeaway/dropwizard-prometheus-bundle</url>
+        <connection>scm:git:ssh://git@github.com/homeaway/dropwizard-prometheus-bundle.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/homeaway/dropwizard-prometheus-bundle.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
