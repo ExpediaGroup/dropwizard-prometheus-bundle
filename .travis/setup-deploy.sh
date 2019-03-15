@@ -18,8 +18,10 @@ do
 done
 
 echo "Setting up env for deployment"
-echo $GPG_SECRETKEY | base64 --decode | $GPG_EXECUTABLE --import
-echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+openssl aes-256-cbc -K $TRAVIS_ENC_KEY -iv $TRAVIS_ENC_IV -in .travis/codesigning.asc.enc -out .travis/codesigning.asc -d
+gpg --fast-import .travis/codesigning.asc
+
+#echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
 
 echo "Configuring maven settings to sign jars and publish to sonatype"
 cp ./.travis/settings.xml ${HOME}/.m2/settings.xml
