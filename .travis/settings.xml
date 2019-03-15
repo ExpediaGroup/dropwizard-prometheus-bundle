@@ -2,21 +2,22 @@
     <servers>
         <server>
             <id>ossrh</id>
-            <username>${env.SONATYPE_TOKEN}</username>
-            <password>${env.SONATYPE_CREDENTIAL}</password>
+            <username>${env.SONATYPE_USERNAME}</username>
+            <password>${env.SONATYPE_PASSWORD}</password>
         </server>
         <server>
-            <id>travisci-gpg</id>
-            <passphrase>${env.GPG_KEYPHRASE}</passphrase>
+            <id>gpg.passphrase</id>
+            <passphrase>${env.GPG_PASSPHRASE}</passphrase>
         </server>
     </servers>
     <profiles>
         <profile>
             <id>signed</id>
+
             <properties>
+                <gpg.executable>${env.GPG_EXECUTABLE}</gpg.executable>
                 <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
-                <gpg.passphraseServerId>travisci-gpg</gpg.passphraseServerId>
-                <gpg.useagent>false</gpg.useagent>
+                <gpg.passphraseServerId>gpg.passphrase</gpg.passphraseServerId>
             </properties>
         </profile>
     </profiles>
