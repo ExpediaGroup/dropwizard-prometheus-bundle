@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [ "$TRAVIS_BRANCH" != 'master' ] || [ "$TRAVIS_PULL_REQUEST" == 'true' ]; then
+#Pull request is a number or false
+if [ "$TRAVIS_BRANCH" != 'master' ] || [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
     echo "Skipping env deployment setup for a non-release build"
     exit 0
 fi
