@@ -44,7 +44,7 @@ public class TestPrometheusBundle {
         int port = DROPWIZARD.getAdminPort();
         Client client = DROPWIZARD.client();
 
-        String scrape = client.target("http://localhost:"+Integer.toString(port)+"/metrics")
+        String scrape = client.target("http://localhost:"+ port +"/metrics")
         .request().get(String.class);
 
         Assertions.assertThat(scrape)

@@ -66,3 +66,11 @@ prometheusConfig:
       matchName: "testName.value"
       labels: {"method":"${0}", "value":"${1}"}
 ```
+
+### Static tag addition
+Adding static tags from the client is considered and anti pattern and should be avoided since it is the prometheus 
+server in the job configuration that should do this. That said, in the advent of OpenMetrics this might be something 
+that could help specially if prometheus is not the scraper. Use this at your own discretion
+
+prometheusConfig:
+    customLabels: {"mylabel":"myvalue"}

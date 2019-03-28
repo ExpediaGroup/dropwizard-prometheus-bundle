@@ -27,7 +27,10 @@ import lombok.Data;
 public class PrometheusBundleConfig {
     String scrapePath = "/metrics";
     List<MapperConfig> mapperConfig = Collections.emptyList();
-
+    //Adding custom labels from a client is considered and anti-pattern since it is prometheus that should add such
+    //labels when it scrapes... that said, there are edge use cases where global labels need to be added. Use this
+    //feature sparingly
+    Map<String, String> customLabels = Collections.emptyMap();
 
     @Data
     public static class MapperConfig{
