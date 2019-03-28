@@ -109,6 +109,9 @@ public class PrometheusBundle<T extends Configuration>  implements ConfiguredBun
             sampleBuilder = new DefaultSampleBuilder();
         }
 
+        if (config.customLabels != null && !config.customLabels.isEmpty()){
+            sampleBuilder = new GlobalLabelSampleBuilderDecorator(sampleBuilder, config.customLabels);
+        }
         return new DropwizardExports(registry, sampleBuilder);
     }
 }
