@@ -21,25 +21,51 @@ import java.util.List;
 import java.util.Map;
 
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class PrometheusBundleConfig {
-    String scrapePath = "/metrics";
+
+    private static final String DEFAULT_SCRAPE_PATH = "/metrics";
+
+    /**
+     * Path where metrics will be exposed on the admin context
+     */
+    private final String scrapePath;
+
+    /**
+     * List of mapper configurations to applied to metric names
+     */
     List<MapperConfig> mapperConfig = Collections.emptyList();
-    //Adding custom labels from a client is considered and anti-pattern since it is prometheus that should add such
-    //labels when it scrapes... that said, there are edge use cases where global labels need to be added. Use this
-    //feature sparingly
+
+    /**
+     * Adding custom labels from a client is considered an anti-pattern since it is prometheus that should add such labels
+     * when it scrapes. That said, there are edge use cases where global lables need to be added. Use this feature sparingly.
+     */
     Map<String, String> customLabels = Collections.emptyMap();
 
-    @Data
-    public static class MapperConfig{
+    public PrometheusBundleConfig() {
+        this.scrapePath = DEFAULT_SCRAPE_PATH;
+    }
+
+    public PrometheusBundleConfig(String scrapePath) {
+        this.scrapePath = scrapePath;
+    }
+
+    @NoArgsConstructor
+    @Getter
+    @Setter
+    public static class MapperConfig {
+
         private String matchField = "";
         private String matchName = "";
         private Map<String, String> labels = Collections.emptyMap();
 
-        public MapperConfig(){}
     }
+
 }
 
 

@@ -4,7 +4,7 @@
 
     <groupId>com.expediagroup</groupId>
     <artifactId>dropwizard-prometheus-bundle</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -39,8 +39,8 @@
     <properties>
 
         <!--Java-->
-        <java.source.version>1.8</java.source.version>
-        <java.target.version>1.8</java.target.version>
+        <java.source.version>11</java.source.version>
+        <java.target.version>11</java.target.version>
 
         <!--Encoding-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,21 +49,23 @@
         <!-- JaCoCo Coverage -->
         <coverage.line>0.80</coverage.line>
 
-        <dropwizard.version>1.3.8</dropwizard.version>
-        <prometheus.version>0.6.0</prometheus.version>
+        <dropwizard.version>2.0.2</dropwizard.version>
+        <metrics4.version>4.1.2</metrics4.version>
+        <prometheus.version>0.8.0</prometheus.version>
 
         <!-- Testing -->
-        <junit.jupiter.version>5.4.0</junit.jupiter.version>
-        <assert4j.version>3.11.1</assert4j.version>
+        <junit.jupiter.version>5.6.0</junit.jupiter.version>
+        <assert4j.version>3.15.0</assert4j.version>
 
         <!-- Utilities -->
-        <lombok.version>1.18.4</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
 
         <!-- Plugins -->
-        <source.pluginVersion>3.0.1</source.pluginVersion>
-        <surefire.pluginVersion>2.22.1</surefire.pluginVersion>
-        <compiler.pluginVersion>3.8.0</compiler.pluginVersion>
-        <release.pluginVersion>2.5.3</release.pluginVersion>
+        <compiler.pluginVersion>3.8.1</compiler.pluginVersion>
+        <enforcer.pluginVersion>3.0.0-M3</enforcer.pluginVersion>
+        <release.pluginVersion>3.0.0-M1</release.pluginVersion>
+        <source.pluginVersion>3.2.1</source.pluginVersion>
+        <surefire.pluginVersion>3.0.0-M4</surefire.pluginVersion>
         <preparationGoals>clean install</preparationGoals>
 
         <!-- OSSRH -->
@@ -76,6 +78,14 @@
                 <groupId>io.dropwizard</groupId>
                 <artifactId>dropwizard-bom</artifactId>
                 <version>${dropwizard.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.dropwizard.metrics</groupId>
+                <artifactId>metrics-bom</artifactId>
+                <version>${metrics4.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -154,6 +164,39 @@
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${enforcer.pluginVersion}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-jakarta-apis</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <!-- Replaced with jakarta.activation:jakarta.activation-api -->
+                                        <exclude>javax.activation:javax.activation-api</exclude>
+                                        <!-- Replaced with jakarta.annotation:jakarta.annotation-api -->
+                                        <exclude>javax.annotation:javax.annotation-api</exclude>
+                                        <!-- Replaced with jakarta.inject:jakarta.inject-api or org.glassfish.hk2.external:jakarta.inject -->
+                                        <exclude>javax.inject:javax.inject</exclude>
+                                        <!-- Replaced with jakarta.servlet:jakarta.servlet-api -->
+                                        <exclude>javax.servlet:javax.servlet-api</exclude>
+                                        <!-- Replaced with jakarta.validation:jakarta.validation-api -->
+                                        <exclude>javax.validation:validation-api</exclude>
+                                        <!-- Replaced with jakarta.xml.bind:jakarta.xml.bind-api -->
+                                        <exclude>javax.xml.bind:jaxb-api</exclude>
+                                    </excludes>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
