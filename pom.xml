@@ -29,6 +29,11 @@
 
     <developers>
         <developer>
+            <name>dropwizard-prometheus-bundle committers</name>
+            <organization>Vrbo</organization>
+            <organizationUrl>https://www.vrbo.com</organizationUrl>
+        </developer>
+        <developer>
             <name>Eduardo Solis</name>
             <email>edusolis@homeaway.com</email>
             <organization>HomeAway</organization>
