@@ -14,7 +14,7 @@ fi
 
 echo "Verifying environment variables"
 
-SIGNING_VARS='MAVEN_MASTER SONATYPE_USERNAME SONATYPE_PASSWORD GPG_EXECUTABLE GPG_KEYNAME GPG_PASSPHRASE'
+SIGNING_VARS='SONATYPE_USERNAME SONATYPE_PASSWORD GPG_EXECUTABLE GPG_KEYNAME GPG_PASSPHRASE'
 for var in ${SIGNING_VARS[@]}
 do
     if [ -z ${!var} ] ; then
@@ -22,14 +22,6 @@ do
         exit 1
     fi
 done
-
-## setup maven decryption since the env vars are probably encrypted with Maven
-cat > ${HOME}/.m2/settings-security.xml << EOM
-<settingsSecurity>
-    <master>${MAVEN_MASTER}</master>
-</settingsSecurity>
-EOM
-echo "Maven security settings setup"
 
 echo "Setting up env for deployment"
 openssl aes-256-cbc -K $encrypted_601c881f6a91_key -iv $encrypted_601c881f6a91_iv -in .travis/codesigning.asc.enc -out .travis/codesigning.asc -d
