@@ -21,23 +21,18 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/homeaway/dropwizard-prometheus-bundle</url>
-        <connection>scm:git:ssh://git@github.com/homeaway/dropwizard-prometheus-bundle.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/homeaway/dropwizard-prometheus-bundle.git</developerConnection>
+        <url>https://github.com/ExpediaGroup/dropwizard-prometheus-bundle</url>
+        <connection>scm:git:ssh://git@github.com/ExpediaGroup/dropwizard-prometheus-bundle.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/ExpediaGroup/dropwizard-prometheus-bundle.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <developers>
         <developer>
-            <name>dropwizard-prometheus-bundle committers</name>
-            <organization>Vrbo</organization>
-            <organizationUrl>https://www.vrbo.com</organizationUrl>
-        </developer>
-        <developer>
-            <name>Eduardo Solis</name>
-            <email>edusolis@homeaway.com</email>
-            <organization>HomeAway</organization>
-            <organizationUrl>https://www.homeaway.com</organizationUrl>
+            <name>Expedia Group Committers</name>
+            <email>oss@expediagroup.com</email>
+            <organization>Expedia Group</organization>
+            <organizationUrl>https://www.expediagroup.com/</organizationUrl>
         </developer>
     </developers>
 
@@ -251,11 +246,7 @@
 
     <profiles>
         <profile>
-            <!-- We create a profile here for two things: -->
-            <!-- 1. centrally specify the deploy to ossrh -->
-            <!-- 2. Sign all relevant artifacts (via configured GPG keys) -->
-            <!-- TODO: Automate Release Process #106 -->
-            <id>signed</id>
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>
@@ -269,7 +260,6 @@
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
-
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -281,6 +271,12 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

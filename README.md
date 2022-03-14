@@ -1,5 +1,5 @@
 # dropwizard-prometheus-bundle
-[![Build Status](https://travis-ci.org/homeaway/dropwizard-prometheus-bundle.svg?branch=master)](https://travis-ci.org/homeaway/dropwizard-prometheus-bundle)
+[![Release](https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/actions/workflows/release.yml/badge.svg)](https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/actions/workflows/release.yml)
 
 This bundle allows for a quick drop-in enablement of prometheus exposition format in dropwizard applications. The bundle
 allows a user to integrate and configure the prometheus dropwizard metrcis bridge and the exposition servlet into a 
