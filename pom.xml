@@ -10,7 +10,7 @@
     <name>${project.groupId}:${project.artifactId}</name>
 
     <description>Dropwizard bundle to integrate dropwizard metrics with prometheus</description>
-    <url>https://github.com/eleduardo/dropwizard-prometheus-bundle</url>
+    <url>https://github.com/ExpediaGroup/dropwizard-prometheus-bundle</url>
 
     <licenses>
         <license>
