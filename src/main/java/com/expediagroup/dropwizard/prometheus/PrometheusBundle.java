@@ -36,7 +36,7 @@ import io.prometheus.client.exporter.MetricsServlet;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+ * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
  */
 @Slf4j
 @Deprecated
@@ -46,7 +46,7 @@ public class PrometheusBundle<T extends Configuration>  implements ConfiguredBun
     CollectorRegistry prometheusRegistry;
 
     /**
-    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
     */
     @Deprecated
     public PrometheusBundle(Function<T, PrometheusBundleConfig> mapperFn){
@@ -55,7 +55,7 @@ public class PrometheusBundle<T extends Configuration>  implements ConfiguredBun
     }
 
     /**
-    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
     */
     @Deprecated
     public PrometheusBundle(Function<T, PrometheusBundleConfig> mapperFn, CollectorRegistry customRegistry){

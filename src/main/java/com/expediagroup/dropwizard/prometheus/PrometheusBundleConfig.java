@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
-* @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+* @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
 */
 @Getter
 @Setter
@@ -52,7 +52,7 @@ public class PrometheusBundleConfig {
     Map<String, String> customLabels = Collections.emptyMap();
 
     /**
-    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
     */
     @Deprecated
     public PrometheusBundleConfig() {
@@ -60,7 +60,7 @@ public class PrometheusBundleConfig {
     }
 
     /**
-    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/blob/master/README.md">README.md</a>
     */
     @Deprecated
     public PrometheusBundleConfig(String scrapePath) {
