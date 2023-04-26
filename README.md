@@ -1,5 +1,8 @@
-# dropwizard-prometheus-bundle
+# dropwizard-prometheus-bundle (DEPRECATED)
 [![Release](https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/actions/workflows/release.yml/badge.svg)](https://github.com/ExpediaGroup/dropwizard-prometheus-bundle/actions/workflows/release.yml)
+
+**DEPRECATED: We no longer maintain dropwizard-prometheus-bundle. If you have questions or concerns, please open an
+issue or fork this repository.**
 
 This bundle allows for a quick drop-in enablement of prometheus exposition format in dropwizard applications. The bundle
 allows a user to integrate and configure the prometheus dropwizard metrcis bridge and the exposition servlet into a 
