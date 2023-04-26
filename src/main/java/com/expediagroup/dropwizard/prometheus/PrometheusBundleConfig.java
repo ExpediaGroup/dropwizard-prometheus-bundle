@@ -25,8 +25,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+* @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+*/
 @Getter
 @Setter
+@Deprecated
 public class PrometheusBundleConfig {
 
     private static final String DEFAULT_SCRAPE_PATH = "/metrics";
@@ -47,10 +51,18 @@ public class PrometheusBundleConfig {
      */
     Map<String, String> customLabels = Collections.emptyMap();
 
+    /**
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    */
+    @Deprecated
     public PrometheusBundleConfig() {
         this.scrapePath = DEFAULT_SCRAPE_PATH;
     }
 
+    /**
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    */
+    @Deprecated
     public PrometheusBundleConfig(String scrapePath) {
         this.scrapePath = scrapePath;
     }

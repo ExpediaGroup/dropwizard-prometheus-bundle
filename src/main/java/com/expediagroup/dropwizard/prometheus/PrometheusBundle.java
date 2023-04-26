@@ -35,17 +35,29 @@ import io.prometheus.client.dropwizard.samplebuilder.SampleBuilder;
 import io.prometheus.client.exporter.MetricsServlet;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+ */
 @Slf4j
+@Deprecated
 public class PrometheusBundle<T extends Configuration>  implements ConfiguredBundle<T> {
 
     Function<T, PrometheusBundleConfig> configMapperFn;
     CollectorRegistry prometheusRegistry;
 
+    /**
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    */
+    @Deprecated
     public PrometheusBundle(Function<T, PrometheusBundleConfig> mapperFn){
         configMapperFn = mapperFn;
         prometheusRegistry = CollectorRegistry.defaultRegistry;
     }
 
+    /**
+    * @deprecated See <a href="https://github.com/ExpediaGroup/dropwizard-template-config/blob/master/README.md">README.md</a>
+    */
+    @Deprecated
     public PrometheusBundle(Function<T, PrometheusBundleConfig> mapperFn, CollectorRegistry customRegistry){
         configMapperFn = mapperFn;
         prometheusRegistry = customRegistry;
