@@ -55,7 +55,7 @@
 
         <!-- Testing -->
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
-        <assert4j.version>3.21.0</assert4j.version>
+        <assert4j.version>3.27.7</assert4j.version>
 
         <!-- Utilities -->
         <lombok.version>1.18.22</lombok.version>
